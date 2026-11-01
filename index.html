@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inferno Logistics – National and International Shipping</title>
+<style>
+:root{--bg:#f2f5f8;--surface:#fff;--ink:#0f2b46;--muted:#4b5f73;--line:#d3dce5;--accent:#f2a900;--accent-ink:#1a1400;--deep:#0f2b46;--deep-ink:#f2f5f8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1722;--surface:#12263a;--ink:#e8eef4;--muted:#9bb0c3;--line:#26405a;--deep:#071019;--deep-ink:#e8eef4}}
+:root[data-theme="dark"]{--bg:#0b1722;--surface:#12263a;--ink:#e8eef4;--muted:#9bb0c3;--line:#26405a;--deep:#071019;--deep-ink:#e8eef4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,3.8rem)}
+h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:Georgia,serif;font-weight:700;font-size:1.25rem;text-decoration:none}
+.logo span{display:inline-block;width:12px;height:12px;background:var(--accent);margin-right:8px;transform:rotate(45deg)}
+nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a:focus-visible{border-color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:8px 12px;font:inherit;font-weight:600;cursor:pointer}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:13px 24px;border-radius:6px;border:0;font-size:1rem;cursor:pointer}
+.btn.alt{background:transparent;color:inherit;border:2px solid currentColor}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{background:var(--deep);color:var(--deep-ink);padding:72px 0}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero p{font-size:1.15rem;opacity:.9}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.label{background:var(--surface);color:var(--ink);border-radius:8px;padding:22px;border-top:8px solid var(--accent)}
+.label h3{font-family:inherit;font-size:1rem;margin-bottom:14px}
+.label ol{list-style:none;margin:0;padding:0;border-left:3px dashed var(--line)}
+.label li{padding:6px 0 6px 18px;position:relative;font-weight:600}
+.label li::before{content:"";position:absolute;left:-9px;top:14px;width:15px;height:15px;border-radius:50%;background:var(--accent);border:3px solid var(--surface)}
+.label small{display:block;color:var(--muted);font-weight:400}
+section{padding:72px 0}
+.alt-bg{background:var(--surface);border-block:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px}
+.alt-bg .card{background:var(--bg)}
+.card p{margin:0;color:var(--muted)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.steps li{counter-increment:s;border-top:4px solid var(--accent);padding-top:14px}
+.steps li::before{content:"Step " counter(s);display:block;font-size:.85rem;color:var(--muted);font-weight:600}
+.steps p{margin:.2em 0 0;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.points{list-style:none;padding:0;margin:0}
+.points li{padding:10px 0 10px 30px;border-bottom:1px solid var(--line);position:relative}
+.points li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+form{display:grid;gap:14px}
+label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+input,select,textarea{font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{font-size:.9rem;color:var(--muted);margin:0}
+footer{background:var(--deep);color:var(--deep-ink);padding:32px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:28px 0}
+.pick label{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px solid var(--line);border-radius:8px;padding:18px;cursor:pointer;font-weight:400}
+.pick label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.pick input{width:20px;height:20px;flex-shrink:0;margin-top:3px;accent-color:var(--accent)}
+.pick strong{display:block;font-weight:700}
+.pick span{color:var(--muted);font-size:.92rem}
+#pickForm{max-width:640px}
+.msg{font-weight:600;margin:0;min-height:1.4em}
+.swatches{display:flex;align-items:center;gap:8px}
+.swatches button{width:28px;height:28px;border-radius:50%;border:2px solid var(--deep-ink);cursor:pointer;padding:0}
+@media (max-width:800px){
+.menu-btn{display:block}
+nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);display:none}
+nav.open{display:block}
+nav ul{flex-direction:column;gap:0;padding:8px 20px}
+nav li a{display:block;padding:12px 0}
+.hero .wrap,.two,.row{grid-template-columns:1fr}
+.hero{padding:48px 0}section{padding:52px 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="logo" href="#home"><span></span>Inferno Logistics</a>
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav id="nav" aria-label="Main">
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#choose">Choose a service</a></li>
+<li><a href="#what-we-do">What we do</a></li>
+<li><a href="#about">About us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="wrap">
+<div>
+<h1>We move it. You relax.</h1>
+<p>From a single suitcase to a full container, we ship goods and personal belongings across the country and around the world, and we handle the paperwork too.</p>
+<div class="actions">
+<a class="btn" href="#contact">Book an appointment</a>
+<a class="btn alt" href="#services">See our services</a>
+</div>
+</div>
+<aside class="label" aria-label="How a shipment moves">
+<h3>Your shipment, start to finish</h3>
+<ol>
+<li>Pick-up<small>We collect from your door</small></li>
+<li>Paperwork<small>Documents and customs handled</small></li>
+<li>In transit<small>National or international</small></li>
+<li>Delivered<small>Straight to the recipient</small></li>
+</ol>
+</aside>
+</div>
+</section>
+
+<section id="services" class="alt-bg">
+<div class="wrap">
+<h2>Our services</h2>
+<p>Whatever you need to send, we have a service that fits it.</p>
+<div class="grid">
+<div class="card"><h3>National delivery</h3><p>Reliable transport of goods and parcels to any destination in the country.</p></div>
+<div class="card"><h3>International shipping</h3><p>Air, sea and road options to send your cargo abroad at a fair price.</p></div>
+<div class="card"><h3>Personal belongings</h3><p>Careful moving of household items, luggage and personal effects.</p></div>
+<div class="card"><h3>Business freight</h3><p>Regular or one-off shipments for companies of any size.</p></div>
+<div class="card"><h3>Paperwork and customs</h3><p>We prepare and file the documents so your shipment clears without delay.</p></div>
+<div class="card"><h3>Door-to-door delivery</h3><p>We collect from you and deliver to the recipient’s address.</p></div>
+</div>
+</div>
+</section>
+
+<section id="choose">
+<div class="wrap">
+<h2>Choose your services</h2>
+<p>Tick everything you need and send us your details. We will contact you to confirm the price and arrange the rest.</p>
+<form id="pickForm">
+<div class="pick">
+<label><input type="checkbox" name="svc" value="National delivery"><div><strong>National delivery</strong><span>Goods and parcels within the country</span></div></label>
+<label><input type="checkbox" name="svc" value="International shipping"><div><strong>International shipping</strong><span>Air, sea or road, abroad</span></div></label>
+<label><input type="checkbox" name="svc" value="Personal belongings"><div><strong>Personal belongings</strong><span>Household items and luggage</span></div></label>
+<label><input type="checkbox" name="svc" value="Business freight"><div><strong>Business freight</strong><span>Regular or one-off company shipments</span></div></label>
+<label><input type="checkbox" name="svc" value="Paperwork and customs"><div><strong>Paperwork and customs</strong><span>Documents prepared and filed for you</span></div></label>
+<label><input type="checkbox" name="svc" value="Door-to-door delivery"><div><strong>Door-to-door delivery</strong><span>Collection and delivery at the address</span></div></label>
+</div>
+<div class="row">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Email or phone<input name="contact" required></label>
+</div>
+<button class="btn" type="submit">Request assistance</button>
+<p class="msg" id="pickMsg" role="status"></p>
+</form>
+</div>
+</section>
+
+<section id="what-we-do">
+<div class="wrap">
+<h2>What we do</h2>
+<p>We take care of the whole job, so you do not have to deal with carriers, forms or customs yourself.</p>
+<ol class="steps">
+<li><h3>Advise</h3><p>Tell us what you are sending and where. We recommend the right service.</p></li>
+<li><h3>Collect and pack</h3><p>We pick up your items and make sure they are packed for the journey.</p></li>
+<li><h3>Handle the paperwork</h3><p>All documents, permits and customs forms are prepared by us.</p></li>
+<li><h3>Deliver</h3><p>Your items arrive at the destination, on time and in good condition.</p></li>
+</ol>
+</div>
+</section>
+
+<section id="about" class="alt-bg">
+<div class="wrap two">
+<div>
+<h2>About us</h2>
+<p>We are an experienced logistics company that helps individuals and businesses send things safely, nationally and internationally.</p>
+<p>Our team has years of hands-on experience with transport, documentation and delivery. We keep prices fair and we answer your questions in plain language.</p>
+</div>
+<ul class="points">
+<li>Experienced team that has handled thousands of shipments</li>
+<li>Great prices with no hidden charges</li>
+<li>Friendly customer service from first call to delivery</li>
+<li>One company for transport, paperwork and delivery</li>
+<li>Focused on your complete satisfaction</li>
+</ul>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap two">
+<div>
+<h2>Contact us or book an appointment</h2>
+<p>Not sure which service is right for you? Book a time and one of our team will help you choose.</p>
+<p><strong>Email:</strong> <a href="mailto:hello@yourbusiness.com">hello@yourbusiness.com</a></p>
+<p><strong>Phone:</strong> +00 000 000 0000</p>
+</div>
+<form id="bookForm">
+<div class="row">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Email<input name="email" type="email" required autocomplete="email"></label>
+</div>
+<div class="row">
+<label>Service<select name="service">
+<option>National delivery</option><option>International shipping</option><option>Personal belongings</option><option>Business freight</option><option>Not sure yet</option>
+</select></label>
+<label>Preferred date<input name="date" type="date"></label>
+</div>
+<label>Message<textarea name="msg" rows="4" placeholder="What are you sending, and where to?"></textarea></label>
+<button class="btn" type="submit">Send request</button>
+<p class="note">This opens your email app with your request filled in.</p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap"><span>© 2026 Inferno Logistics</span><div class="swatches" id="swatches" role="group" aria-label="Site colour"><span>Site colour</span></div></div>
+</footer>
+
+<script>
+var btn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)}});
+document.getElementById('bookForm').addEventListener('submit',function(e){
+e.preventDefault();var f=e.target;
+var body='Name: '+f.name.value+'\nEmail: '+f.email.value+'\nService: '+f.service.value+'\nPreferred date: '+(f.date.value||'Flexible')+'\n\n'+f.msg.value;
+window.location.href='mailto:hello@yourbusiness.com?subject='+encodeURIComponent('Appointment request: '+f.service.value)+'&body='+encodeURIComponent(body);
+});
+document.getElementById('pickForm').addEventListener('submit',function(e){
+e.preventDefault();var f=e.target,m=document.getElementById('pickMsg');
+var s=[].slice.call(f.querySelectorAll('input[name=svc]:checked')).map(function(i){return i.value});
+if(!s.length){m.textContent='Select at least one service to continue.';return}
+m.textContent='';
+var body='Name: '+f.name.value+'\nContact: '+f.contact.value+'\n\nServices needed:\n- '+s.join('\n- ');
+window.location.href='mailto:hello@yourbusiness.com?subject='+encodeURIComponent('Service request: '+s.join(', '))+'&body='+encodeURIComponent(body);
+});
+var themes=[['Navy and amber','#0f2b46','#f2a900'],['Forest and orange','#12372a','#ff9f43'],['Maroon and gold','#4a1424','#e5b94a'],['Slate and teal','#263238','#2dd4bf'],['Plum and lime','#2d1b4e','#c6e84b']];
+function setTheme(i){var t=themes[i],r=document.documentElement.style;r.setProperty('--deep',t[1]);r.setProperty('--accent',t[2]);try{localStorage.setItem('theme',i)}catch(x){}}
+var sw=document.getElementById('swatches');
+themes.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.title=t[0];b.setAttribute('aria-label',t[0]);b.style.background='linear-gradient(135deg,'+t[1]+' 50%,'+t[2]+' 50%)';b.onclick=function(){setTheme(i)};sw.appendChild(b)});
+try{var saved=localStorage.getItem('theme');if(saved!==null&&themes[saved])setTheme(saved)}catch(x){}
+</script>
+</body>
+</html>
